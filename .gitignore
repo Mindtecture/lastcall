@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Env & secrets
+.env
+.env.*
+*.json.key
+service-account*.json
+
+# Node / Expo (for later)
+node_modules/
+.expo/
+dist/
+
+# OS / editor
+.DS_Store
+.vscode/
+*.log
