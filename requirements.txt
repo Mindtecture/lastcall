@@ -1,0 +1,5 @@
+# LastCall — agent backend (Python 3.11+)
+google-adk>=1.0.0
+google-cloud-aiplatform>=1.90.0
+pydantic>=2.0
+python-dotenv>=1.0
