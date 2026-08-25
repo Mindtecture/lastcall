@@ -19,3 +19,6 @@ dist/
 .DS_Store
 .vscode/
 *.log
+
+# keep the template
+!.env.example
