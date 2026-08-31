@@ -81,12 +81,42 @@ python -m app.transcript                 # rendered message transcript
 python -m app.reset                      # clear demo state (keeps seeds)
 ```
 
-Simulate a full run without WhatsApp:
+## Testing (no WhatsApp needed)
+
+With `WHATSAPP_STUB=1`, the full pipeline runs offline: `/simulate` plays the
+role of the Meta webhook, every reply comes back in the JSON response, and all
+messages/steps land in Firestore. Use your `WHATSAPP_TEST_RECIPIENT` value as
+the business number; the seeded demo customers have fictional numbers.
 
 ```bash
-curl -X POST localhost:8808/simulate -H "X-Verify-Token: $WHATSAPP_WEBHOOK_VERIFY_TOKEN" \
-     -H "Content-Type: application/json" -d '{"from":"9617...","text":"12 salads left, close at 9"}'
+TOKEN="$WHATSAPP_WEBHOOK_VERIFY_TOKEN"   # from your .env
+BIZ="96171234567"                        # your WHATSAPP_TEST_RECIPIENT value
+SIM() { curl -s -X POST localhost:8808/simulate -H "X-Verify-Token: $TOKEN" \
+        -H "Content-Type: application/json" -d "{\"from\":\"$1\",\"text\":\"$2\"}"; }
+
+# 1. Business posts an offer with a missing field -> ONE clarifying question
+SIM "$BIZ" "12 salads left, close at 9"
+
+# 2. Business answers -> priced, published, wish lists matched, customers notified
+SIM "$BIZ" "4 each"
+
+# 3. First matched customer says YES -> wins, confirmation code, business notified
+SIM "96170000002" "YES"           # seeded customer Raffi ("salad any price")
+
+# 4. Second YES -> polite "already gone" (first-YES-wins via Firestore transaction)
+SIM "96170000001" "YES"           # seeded customer Maya
+
+# 5. A customer adds a wish by chatting -> stored, confirmed in one line
+SIM "96170000004" "let me know when there's pizza"
+
+# 6. Matching pizza offer -> that customer is notified via their new wish
+SIM "$BIZ" "6 pizzas at 7 each until 22:00"
 ```
+
+Watch the agent think while you do this: `python -m app.steps` (or open the
+`agent_steps` collection in the Firestore console), and render the whole
+conversation with `python -m app.transcript`. `python -m app.reset` clears
+state between test rounds.
 
 Deploy: `gcloud run deploy lastcall --source . --region europe-west1
 --allow-unauthenticated --env-vars-file .env.deploy.yaml --no-cpu-throttling`
