@@ -19,7 +19,10 @@ def main() -> None:
             d.reference.delete()
             n += 1
         print(f"{col}: {n} deleted")
-    print("Reset complete — businesses/customers kept.")
+    # Warm-up doc: keeps agent_steps visible in the Firestore console's root
+    # panel after a wipe, so the demo can click into it before recording.
+    db.log_step("reset", "reset", "demo starting")
+    print("Reset complete — businesses/customers kept; agent_steps warm-up doc written.")
 
 
 if __name__ == "__main__":
