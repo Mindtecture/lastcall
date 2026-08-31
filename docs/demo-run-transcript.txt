@@ -1,0 +1,41 @@
+﻿=== LastCall transcript — last 13 messages ===
+
+[22:56:12]  Sunset Deli → agent:
+    "12 salads left, close at 9"
+
+[22:56:17]  agent → Sunset Deli:
+    "Got it — salads. Quick question — at what price each?"
+
+[22:56:45]  Sunset Deli → agent:
+    "4 each"
+
+[22:56:51]  agent → Sunset Deli:
+    "✅ Published: 12x salads at $4.00, pickup until 21:00. Matching customers now…"
+
+[22:56:52]  agent → Maya:
+    "🔔 LastCall: Sunset Deli has 12x salads at $4.00, pickup until 21:00 (matched your wish: "fresh salads under $10"). Reply YES to book — first come, first served."
+
+[22:56:53]  agent → Raffi:
+    "🔔 LastCall: Sunset Deli has 12x salads at $4.00, pickup until 21:00 (matched your wish: "salad any price"). Reply YES to book — first come, first served."
+
+[22:56:54]  agent → Sunset Deli:
+    "📣 2 matched customer(s) notified."
+
+[22:57:10]  Maya → agent:
+    "Yes"
+
+[22:57:11]  agent → Maya:
+    "🎉 It's yours! 12x salads from Sunset Deli at $4.00. Confirmation code: 1565 — show it at pickup before 21:00."
+
+[22:57:12]  agent → Sunset Deli:
+    "📦 Booked: Maya took your salads offer. Confirmation code 1565 — binding, they'll show it at pickup."
+
+[22:57:38]  Raffi → agent:
+    "Yes"
+
+[22:57:39]  agent → Raffi:
+    "Sorry — that offer is already gone. I'll keep watching your wish list. 🤞"
+
+[22:58:01]  Sunset Deli → agent:
+    "6 pizza left 5 each untill 10"
+
