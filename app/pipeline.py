@@ -322,8 +322,7 @@ async def _customer_message(customer, frm, text, run_id, send) -> None:
         )
         send(
             frm,
-            f"Got it — I'll ping you when there's {result.wish}. "
-            f"Reply YES to that message to book it.",
+            f"Got it — I'll ping you when there's {result.wish}.",
             name,
         )
     else:

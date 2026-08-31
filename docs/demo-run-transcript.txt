@@ -48,6 +48,12 @@
 [23:15:06]  agent → Raffi:
     "Sorry — that offer is already gone. I'll keep watching your wish list. 🤞"
 
+    [Editor's note: expected behavior, not a bug — the wish confirmation's old
+     wording ("Reply YES to that message") invited a YES before any pizza offer
+     existed, so the YES resolved against the newest prior offer (the salads,
+     already taken). The confirmation copy no longer mentions YES; the YES
+     instruction lives only on offer notifications.]
+
 [23:15:13]  Sunset Deli → agent:
     "6 pizzas left 7 each until 10:30"
 
