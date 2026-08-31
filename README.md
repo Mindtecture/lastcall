@@ -114,6 +114,8 @@ Cloud Run · FastAPI · Meta WhatsApp Cloud API
 - **Partial-quantity claims** — a customer takes just the units they want; the offer
   stays open until sold out or expired (winner-takes-all remains for single-unit
   offers like hotel rooms).
+- **Self-serve wish lists** — customers set and edit wish lists in the chat itself
+  (today they are seeded demo data).
 - Pickup-code close-out, offer expiry sweeps, business self-onboarding, reliability
   scoring for no-shows, embeddings-based matching at scale.
 

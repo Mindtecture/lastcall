@@ -84,6 +84,8 @@ the agent think in the GCP console while the WhatsApp conversation happens.
 - **Partial-quantity claims** — a customer takes just the units they want; the offer
   stays open until sold out or expired (winner-takes-all remains for single-unit
   offers like hotel rooms).
+- **Self-serve wish lists** — customers set and edit wish lists in the chat itself
+  (today they are seeded demo data).
 - Pickup-code close-out, scheduled offer expiry, business self-onboarding, customer
   reliability scoring, embeddings-based matching at scale.
 
