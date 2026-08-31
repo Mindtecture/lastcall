@@ -1,0 +1,21 @@
+# LastCall — build log (submission day, Aug 31 2026)
+
+- 06:00 Phase 0: assessed repo — parse agent (ADK + Gemini 2.5 Flash via Vertex/ADC) exists and passes live smoke test
+- 06:05 Verified Firestore "(default)" exists (europe-west1, Native); run/cloudbuild/artifactregistry/aiplatform APIs all enabled
+- 06:07 Meta WhatsApp access token found EXPIRED (since Aug 25) — building with local stub, real API swaps in when token refreshed
+- 06:08 Noted gcloud CLI has no logged-in account (ADC only) — deploy will use ADC access token or needs one `gcloud auth login`
+- 06:40 Built app layer: config/db/wa(stub+real)/matching(Flash-Lite)/pipeline/booking(txn)/webhook/seed/transcript
+- 06:55 Hit google-api-core 2.35.0 bug (percent-encoded '(default)' db id -> Firestore 400); bisected, pinned <2.35
+- 07:00 Seeded 2 businesses + 5 customers; parse agent re-verified after dependency churn
+- 07:30 Local e2e in stub mode: happy path ran twice cleanly (salads w/ clarification, sushi complete); fixed +prefix phone normalization and late-YES answering about the wrong offer
+- 07:35 agent_steps log and transcript renderer verified (demo fallback ready)
+- 07:50 First deploy attempt failed: compute SA lacked storage.objects.get on run-sources bucket; granted roles/cloudbuild.builds.builder, retried
+- 08:00 Wrote README (architecture + how to run), docs/devpost.md, docs/demo-script.md while Cloud Build ran
+- 08:20 Deployed to Cloud Run (lastcall, europe-west1) after granting compute SA cloudbuild.builds.builder; service URL live
+- 08:35 Cloud 403s were IAM propagation of datastore.user/aiplatform.user grants; cleared after ~10 min
+- 08:45 Full pipeline verified ON Cloud Run: publish->match->notify->transactional booking, plus strict one-message clarify (two missing fields, one question)
+- 08:50 Added app/reset.py (pre-demo state wipe); Phase 1+2 complete, awaiting Meta webhook subscribe + fresh token
+- 09:10 Clean cloud run confirmed via /offers (eclairs taken, winner cust-maya, code 2720). CODE FROZEN — docs/ops only from here
+- 09:11 Noted in README + here: /simulate must be removed or admin-gated after the hackathon (verify-token auth only)
+- 09:25 Phase 2 docs finalized: README (+/simulate warning), devpost.md, demo-script.md, whatsapp-templates.md (3 production templates + session-window notes), real-test-checklist.md (3-phone plan)
+- 10:45 Fresh Meta token validated (after a .env paste adventure); hello_world template delivered to business phone; redeployed revision lastcall-00002 with real-send mode

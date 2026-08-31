@@ -1,5 +1,14 @@
 # LastCall — agent backend (Python 3.11+)
 google-adk>=1.0.0
 google-cloud-aiplatform>=1.90.0
+google-cloud-firestore>=2.19
+# 2.35.0 percent-encodes the "(default)" database id in the gRPC routing
+# header and Firestore rejects it with 400 — verified 2.34.0 is the last good.
+google-api-core<2.35
+grpcio-status<1.83  # newer needs protobuf>=7, which aiplatform forbids
 pydantic>=2.0
 python-dotenv>=1.0
+fastapi>=0.115
+uvicorn>=0.30
+requests>=2.32
+tzdata>=2024.1
