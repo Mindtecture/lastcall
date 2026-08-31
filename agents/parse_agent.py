@@ -44,7 +44,12 @@ Businesses text you on WhatsApp in free language. Each message is ONE of these i
 3. "revise"      - the business changes something about the draft (price, quantity or deadline).
                    Examples: "make it 7" (price 7), "7 each", "only 5 left", "until 10", "change price to 5.50".
 4. "pickup_code" - the message is essentially a 4-digit pickup code, e.g. "4821" or "code 4821".
-5. "unknown"     - anything else: greetings, questions, chit-chat, unclear or incomplete messages.
+5. "wishlist_add" - a customer asks to be told when something becomes available or wants deals.
+                   Examples: "let me know when there's pizza", "I want dessert deals under 5",
+                   "ping me for sushi under 15", "looking for a gym day pass".
+                   This is a REQUEST for future offers — unlike new_offer, which is a seller
+                   announcing stock to sell now (quantities, prices, closing times).
+6. "unknown"     - anything else: greetings, questions, chit-chat, unclear or incomplete messages.
 
 Return ONLY a JSON object with exactly these fields:
 - intent: one of "new_offer", "approve", "revise", "pickup_code", "unknown"
@@ -58,12 +63,18 @@ Return ONLY a JSON object with exactly these fields:
 - expiry_time: pickup deadline as 24-hour "HH:MM" (e.g. "21:00"); null if not stated.
         Hours without am/pm from 1 to 11 mean the evening (e.g. "close at 9" -> "21:00", "until 8" -> "20:00").
 - code: the 4-digit pickup code as a string, only for pickup_code; otherwise null
+- wish: only for wishlist_add: the want as a short phrase, "<item>" or "<item> under $X"
+        (e.g. "let me know when there's pizza" -> "pizza",
+        "I want dessert deals under 5" -> "dessert under $5"). Otherwise null.
 - confidence: your confidence in the classification, from 0.0 to 1.0
 
 Rules:
 - For "revise", fill only the field(s) being changed. A bare number ("make it 7") is a new PRICE,
   unless the words clearly indicate a quantity ("7 pieces", "7 left") or a time ("until 7").
 - For "approve" and "pickup_code", item fields are null and tags is [].
+- For "wishlist_add", fill wish (and tags if something from the list fits); item_label,
+  qty, explicit_price and expiry_time stay null. If you cannot tell WHAT they want,
+  use "unknown" instead — never invent a wish.
 - If the message is not clearly one of the intents, use "unknown" with confidence below {CONFIDENCE_THRESHOLD}.
   Never guess a new_offer from an unclear message.
 - Output strictly valid JSON, no markdown, no commentary.

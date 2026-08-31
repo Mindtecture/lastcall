@@ -14,7 +14,9 @@ from pydantic import BaseModel, Field, field_validator
 
 from agents.tags import Tag
 
-Intent = Literal["new_offer", "approve", "revise", "pickup_code", "unknown"]
+Intent = Literal[
+    "new_offer", "approve", "revise", "pickup_code", "wishlist_add", "unknown"
+]
 
 # Below this the pipeline treats the result as `unknown` (design.md §5).
 CONFIDENCE_THRESHOLD = 0.6
@@ -48,6 +50,13 @@ class ParseResult(BaseModel):
     )
     code: Optional[str] = Field(
         default=None, description="4-digit pickup code, digits only."
+    )
+    wish: Optional[str] = Field(
+        default=None,
+        description=(
+            "Only for wishlist_add: the want as a short phrase, "
+            "'<item>' or '<item> under $X', e.g. 'pizza', 'dessert under $5'."
+        ),
     )
     confidence: float = Field(description="0.0-1.0 confidence in the classification.")
 
@@ -92,6 +101,14 @@ class ParseResult(BaseModel):
         v = str(v).strip()
         if not _CODE_RE.match(v):
             raise ValueError("code must be exactly 4 digits")
+        return v
+
+    @field_validator("wish", mode="before")
+    @classmethod
+    def _clean_wish(cls, v):
+        if isinstance(v, str):
+            v = v.strip()
+            return v or None
         return v
 
     @field_validator("confidence")

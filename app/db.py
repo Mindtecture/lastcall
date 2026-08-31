@@ -144,6 +144,13 @@ def log_step(
     logger.info("[%s] %s: %s", run_id, step, detail)
 
 
+def add_wish(customer_id: str, wish: str) -> None:
+    """Append one wish to a customer's wish list (ArrayUnion dedupes exact repeats)."""
+    client().collection("customers").document(customer_id).update(
+        {"wishlist": firestore.ArrayUnion([wish])}
+    )
+
+
 # --- pending clarification (one per business phone) ----------------------
 
 

@@ -22,3 +22,5 @@
 - 11:30 Real WhatsApp loop live: WABA subscribed_apps was the missing link (fixed via API); hi/reply verified on all 3 phones
 - 11:50 Committed and pushed to github.com/Mindtecture/lastcall (987461d); real customer numbers moved out of repo into .env
 - 12:05 RULES CHECK: hackathon mandates Gemini 3.5+; found gemini-3.5-flash(-lite) on Vertex 'global' endpoint; switched via env only, parse agent re-verified on all 5 intents, redeploying
+- 13:05 Scoped unfreeze: wishlist_add intent (customer 'let me know when there's pizza' -> wish stored via ArrayUnion, one-line confirm; unclear -> single prompt, never guess). Parse regression clean on all 6 intents; local stub e2e clean (wish -> match-by-new-wish -> booking). Deploying
+- 13:20 wishlist_add live on Cloud Run (lastcall-00004): cloud-verified wish extraction + ArrayUnion persist; seeds restored, state reset

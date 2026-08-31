@@ -110,14 +110,7 @@ async def handle_inbound(frm: str, text: str, run_id: str) -> list[dict]:
         elif business:
             await _business_message(business, frm, text, run_id, send)
         elif customer:
-            wishes = "; ".join(customer.get("wishlist") or [])
-            send(
-                frm,
-                f"Hi {customer.get('display_name', '')}! I watch last-minute offers "
-                f"for you (wish list: {wishes}). I'll message you when something "
-                f"matches — reply YES then to book it.",
-                customer.get("display_name"),
-            )
+            await _customer_message(customer, frm, text, run_id, send)
         else:
             send(
                 frm,
@@ -309,6 +302,39 @@ def _publish_and_match(business, draft, source_message, run_id, send) -> None:
 
 
 # --- customer side -------------------------------------------------------
+
+
+async def _customer_message(customer, frm, text, run_id, send) -> None:
+    """Non-YES customer message: add a wish, or one short prompt — never guess."""
+    result = await parse_message_async(text)
+    name = customer.get("display_name", "")
+    db.log_step(
+        run_id,
+        "parse",
+        f'"{text}" -> intent={result.intent} conf={result.confidence:.2f}',
+    )
+    if result.intent == "wishlist_add" and result.wish:
+        db.add_wish(customer["id"], result.wish)
+        db.log_step(
+            run_id,
+            "wishlist",
+            f'{name or customer["id"]} added wish "{result.wish}"',
+        )
+        send(
+            frm,
+            f"Got it — I'll ping you when there's {result.wish}. "
+            f"Reply YES to that message to book it.",
+            name,
+        )
+    else:
+        wishes = "; ".join(customer.get("wishlist") or [])
+        send(
+            frm,
+            f"Hi {name}! I watch last-minute offers for you "
+            f"(wish list: {wishes}). To add a wish, just tell me what to watch "
+            f"for — e.g. 'pizza under $10'.",
+            name,
+        )
 
 
 def _handle_yes(customer, run_id, send) -> None:
