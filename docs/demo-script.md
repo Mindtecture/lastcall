@@ -92,7 +92,7 @@ over WhatsApp."
 
 **VO:**
 "Under the hood: a FastAPI webhook on Cloud Run receives WhatsApp events. An ADK
-agent on Gemini 2.5 Flash does the parsing with a strict schema and a confidence
+agent on Gemini 3.5 Flash does the parsing with a strict schema and a confidence
 gate — it never guesses its way into publishing. Flash-Lite does semantic
 matching. Firestore holds the offers, the message log, the live step log — and
 its transactions are what make bookings binding. WhatsApp is just a thin adapter:

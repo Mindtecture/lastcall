@@ -19,3 +19,6 @@
 - 09:11 Noted in README + here: /simulate must be removed or admin-gated after the hackathon (verify-token auth only)
 - 09:25 Phase 2 docs finalized: README (+/simulate warning), devpost.md, demo-script.md, whatsapp-templates.md (3 production templates + session-window notes), real-test-checklist.md (3-phone plan)
 - 10:45 Fresh Meta token validated (after a .env paste adventure); hello_world template delivered to business phone; redeployed revision lastcall-00002 with real-send mode
+- 11:30 Real WhatsApp loop live: WABA subscribed_apps was the missing link (fixed via API); hi/reply verified on all 3 phones
+- 11:50 Committed and pushed to github.com/Mindtecture/lastcall (987461d); real customer numbers moved out of repo into .env
+- 12:05 RULES CHECK: hackathon mandates Gemini 3.5+; found gemini-3.5-flash(-lite) on Vertex 'global' endpoint; switched via env only, parse agent re-verified on all 5 intents, redeploying

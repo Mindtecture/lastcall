@@ -44,19 +44,19 @@ live to a Firestore `agent_steps` collection you can watch stream in the GCP con
                   ▼               ▼
      ┌────────────────────┐  ┌─────────────────────────┐
      │ Vertex AI (Gemini) │  │        Firestore         │
-     │ 2.5 Flash: parsing │  │ businesses · customers   │
+     │ 3.5 Flash: parsing │  │ businesses · customers   │
      │ (ADK LlmAgent)     │  │ offers · messages        │
-     │ 2.5 Flash-Lite:    │  │ agent_steps (live log)   │
+     │ 3.5 Flash-Lite:    │  │ agent_steps (live log)   │
      │ wish-list matching │  │ bookings via TRANSACTION │
      └────────────────────┘  └─────────────────────────┘
 ```
 
-- **Parsing** — an ADK `LlmAgent` (Gemini 2.5 Flash, temperature 0, strict pydantic
+- **Parsing** — an ADK `LlmAgent` (Gemini 3.5 Flash, temperature 0, strict pydantic
   schema) classifies every business message into one intent and extracts offer fields.
   Low confidence collapses to `unknown`; the agent never guesses its way into a
   published offer.
 - **Pricing** — a separate step applies owner rules (minimum price) to the stated price.
-- **Matching** — Gemini 2.5 Flash-Lite judges the offer against all wish lists in one
+- **Matching** — Gemini 3.5 Flash-Lite judges the offer against all wish lists in one
   call. Wish lists are free text ("sushi under $15"), so price caps and paraphrases
   match naturally.
 - **Booking** — a Firestore transaction makes the first YES binding: exactly one
@@ -98,7 +98,7 @@ then point the Meta webhook at `https://<service-url>/webhook` with your verify 
 
 ## Stack
 
-ADK (Python) · Gemini 2.5 Flash + Flash-Lite on Vertex AI · Firestore ·
+ADK (Python) · Gemini 3.5 Flash + Flash-Lite on Vertex AI · Firestore ·
 Cloud Run · FastAPI · Meta WhatsApp Cloud API
 
 ## Roadmap

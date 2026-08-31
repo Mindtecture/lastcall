@@ -32,13 +32,13 @@ the agent think in the GCP console while the WhatsApp conversation happens.
 
 ## How we built it
 
-- **ADK (Python) + Gemini 2.5 Flash on Vertex AI** — the parse agent is an ADK
+- **ADK (Python) + Gemini 3.5 Flash on Vertex AI** — the parse agent is an ADK
   `LlmAgent` with temperature 0 and a strict pydantic output schema. Every inbound
   business message becomes exactly one intent (`new_offer`, `revise`, `approve`,
   `pickup_code`, `unknown`) plus extracted fields. A confidence gate collapses
   anything uncertain to `unknown` — the agent never guesses its way into a
   published offer.
-- **Gemini 2.5 Flash-Lite for matching** — one cheap model call judges a new offer
+- **Gemini 3.5 Flash-Lite for matching** — one cheap model call judges a new offer
   against all customer wish lists at once. Because wish lists are free text,
   "fresh salads under $10" matches a $4 salad offer and correctly rejects a $12 one.
 - **Firestore transactions for binding acceptance** — the first YES flips the offer
@@ -89,5 +89,5 @@ LastCall runs where Lebanon already talks.
 
 ## Built with
 
-Python · ADK · Gemini 2.5 Flash / Flash-Lite · Vertex AI · Firestore · Cloud Run ·
+Python · ADK · Gemini 3.5 Flash / Flash-Lite · Vertex AI · Firestore · Cloud Run ·
 FastAPI · Meta WhatsApp Cloud API
