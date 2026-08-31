@@ -66,7 +66,7 @@ def seed() -> None:
         "cust-karim": {
             "display_name": "Karim",
             "whatsapp_number": "96170000004",
-            "wishlist": ["pizza or burgers under $8"],
+            "wishlist": ["dessert under $5"],
         },
     }
 
