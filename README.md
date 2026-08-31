@@ -111,6 +111,9 @@ Cloud Run · FastAPI · Meta WhatsApp Cloud API
   reliability) instead of everyone, so offers don't race dozens of phones at once.
 - **Business pricing** — a small per-booking fee or a flat monthly line; free while the
   network grows.
+- **Partial-quantity claims** — a customer takes just the units they want; the offer
+  stays open until sold out or expired (winner-takes-all remains for single-unit
+  offers like hotel rooms).
 - Pickup-code close-out, offer expiry sweeps, business self-onboarding, reliability
   scoring for no-shows, embeddings-based matching at scale.
 

@@ -71,7 +71,7 @@ Flash-Lite model does the matching, price caps included."
 2. Customer types: **"YES"**.
 3. Agent: *"🎉 It's yours! … Confirmation code: 1672 — show it at pickup before
    21:00."*
-4. Cut to business chat: *"📦 Booked: Raffi took your salads offer.
+4. Cut to business chat: *"📦 Booked: Maya took your salads offer.
    Confirmation code XXXX — binding, they'll show it at pickup."*
 5. (Quick beat) a second customer's YES: *"Sorry — that offer is already gone."*
 

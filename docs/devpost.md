@@ -81,6 +81,9 @@ the agent think in the GCP console while the WhatsApp conversation happens.
   offer doesn't race dozens of phones at once.
 - **Business pricing** — a small per-booking fee or a flat monthly line; free while the
   network grows.
+- **Partial-quantity claims** — a customer takes just the units they want; the offer
+  stays open until sold out or expired (winner-takes-all remains for single-unit
+  offers like hotel rooms).
 - Pickup-code close-out, scheduled offer expiry, business self-onboarding, customer
   reliability scoring, embeddings-based matching at scale.
 
