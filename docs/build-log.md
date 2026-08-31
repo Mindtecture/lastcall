@@ -25,3 +25,4 @@
 - 13:05 Scoped unfreeze: wishlist_add intent (customer 'let me know when there's pizza' -> wish stored via ArrayUnion, one-line confirm; unclear -> single prompt, never guess). Parse regression clean on all 6 intents; local stub e2e clean (wish -> match-by-new-wish -> booking). Deploying
 - 13:20 wishlist_add live on Cloud Run (lastcall-00004): cloud-verified wish extraction + ArrayUnion persist; seeds restored, state reset
 - 14:00 FILMED RUN CLEAN on real WhatsApp: offer->clarify->publish->2 notified->Maya wins (code 1565)->Raffi 'already gone', 87s end to end, all sends 'sent'; transcript saved
+- 14:15 Final filmed take clean: 40s arc, Maya wins code 2493, Raffi 'already gone'; transcript updated
