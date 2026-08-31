@@ -1,83 +1,71 @@
-﻿=== LastCall transcript — last 25 messages ===
+﻿=== LastCall transcript — last 23 messages ===
 
-[23:13:57]  Sunset Deli → agent:
-    "10 salads left we close at 10"
+[23:39:36]  Sunset Deli → agent:
+    "12 salads left, close at 9"
 
-[23:14:01]  agent → Sunset Deli:
+[23:39:40]  agent → Sunset Deli:
     "Got it — salads. Quick question — at what price each?"
 
-[23:14:14]  Sunset Deli → agent:
-    "8 each"
+[23:39:51]  Sunset Deli → agent:
+    "5 each"
 
-[23:14:17]  agent → Sunset Deli:
-    "✅ Published: 10x salads at $8.00, pickup until 22:00. Matching customers now…"
+[23:39:55]  agent → Sunset Deli:
+    "✅ Published: 12x salads at $5.00, pickup until 21:00. Matching customers now…"
 
-[23:14:19]  agent → Maya:
-    "🔔 LastCall: Sunset Deli has 10x salads at $8.00, pickup until 22:00 (matched your wish: "fresh salads under $10"). Reply YES to book — first come, first served."
+[23:39:57]  agent → Maya:
+    "🔔 LastCall: Sunset Deli has 12x salads at $5.00, pickup until 21:00 (matched your wish: "fresh salads under $10"). Reply YES to book — first come, first served."
 
-[23:14:20]  agent → Raffi:
-    "🔔 LastCall: Sunset Deli has 10x salads at $8.00, pickup until 22:00 (matched your wish: "salad any price"). Reply YES to book — first come, first served."
+[23:39:58]  agent → Raffi:
+    "🔔 LastCall: Sunset Deli has 12x salads at $5.00, pickup until 21:00 (matched your wish: "salad any price"). Reply YES to book — first come, first served."
 
-[23:14:20]  agent → Sunset Deli:
+[23:39:58]  agent → Sunset Deli:
     "📣 2 matched customer(s) notified."
 
-[23:14:32]  Maya → agent:
+[23:40:07]  Maya → agent:
     "Yes"
 
-[23:14:33]  agent → Maya:
-    "🎉 It's yours! 10x salads from Sunset Deli at $8.00. Confirmation code: 2493 — show it at pickup before 22:00."
+[23:40:08]  agent → Maya:
+    "🎉 It's yours! 12x salads from Sunset Deli at $5.00. Confirmation code: 4697 — show it at pickup before 21:00."
 
-[23:14:33]  agent → Sunset Deli:
-    "📦 Booked: Maya took your salads offer. Confirmation code 2493 — binding, they'll show it at pickup."
+[23:40:09]  agent → Sunset Deli:
+    "📦 Booked: Maya took your salads offer. Confirmation code 4697 — binding, they'll show it at pickup."
 
-[23:14:36]  Raffi → agent:
+[23:40:13]  Raffi → agent:
     "Yes"
 
-[23:14:37]  agent → Raffi:
+[23:40:14]  agent → Raffi:
     "Sorry — that offer is already gone. I'll keep watching your wish list. 🤞"
 
-[23:14:51]  Raffi → agent:
+[23:40:35]  Raffi → agent:
     "Im interested in pizza"
 
-[23:14:54]  agent → Raffi:
-    "Got it — I'll ping you when there's pizza. Reply YES to that message to book it."
+[23:40:38]  agent → Raffi:
+    "Got it — I'll ping you when there's pizza."
 
-[23:15:06]  Raffi → agent:
-    "Yes"
+[23:40:39]  Sunset Deli → agent:
+    "6 pizzas left, 8 each, until 10"
 
-[23:15:06]  agent → Raffi:
-    "Sorry — that offer is already gone. I'll keep watching your wish list. 🤞"
+[23:40:42]  agent → Sunset Deli:
+    "✅ Published: 6x pizzas at $8.00, pickup until 22:00. Matching customers now…"
 
-    [Editor's note: expected behavior, not a bug — the wish confirmation's old
-     wording ("Reply YES to that message") invited a YES before any pizza offer
-     existed, so the YES resolved against the newest prior offer (the salads,
-     already taken). The confirmation copy no longer mentions YES; the YES
-     instruction lives only on offer notifications.]
+[23:40:44]  agent → Raffi:
+    "🔔 LastCall: Sunset Deli has 6x pizzas at $8.00, pickup until 22:00 (matched your wish: "pizza"). Reply YES to book — first come, first served."
 
-[23:15:13]  Sunset Deli → agent:
-    "6 pizzas left 7 each until 10:30"
-
-[23:15:18]  agent → Sunset Deli:
-    "✅ Published: 6x pizzas at $7.00, pickup until 22:30. Matching customers now…"
-
-[23:15:19]  agent → Raffi:
-    "🔔 LastCall: Sunset Deli has 6x pizzas at $7.00, pickup until 22:30 (matched your wish: "pizza"). Reply YES to book — first come, first served."
-
-[23:15:20]  agent → Sunset Deli:
+[23:40:45]  agent → Sunset Deli:
     "📣 1 matched customer(s) notified."
 
-[23:15:28]  Raffi → agent:
+[23:40:54]  Raffi → agent:
     "Yes"
 
-[23:15:29]  agent → Raffi:
-    "🎉 It's yours! 6x pizzas from Sunset Deli at $7.00. Confirmation code: 2578 — show it at pickup before 22:30."
+[23:40:55]  agent → Raffi:
+    "🎉 It's yours! 6x pizzas from Sunset Deli at $8.00. Confirmation code: 6386 — show it at pickup before 22:00."
 
-[23:15:30]  agent → Sunset Deli:
-    "📦 Booked: Raffi took your pizzas offer. Confirmation code 2578 — binding, they'll show it at pickup."
+[23:40:56]  agent → Sunset Deli:
+    "📦 Booked: Raffi took your pizzas offer. Confirmation code 6386 — binding, they'll show it at pickup."
 
-[23:15:45]  Raffi → agent:
+[23:41:05]  Raffi → agent:
     "Thanks"
 
-[23:15:48]  agent → Raffi:
+[23:41:08]  agent → Raffi:
     "Hi Raffi! I watch last-minute offers for you (wish list: salad any price; hotel night in Jounieh under $80; pizza). To add a wish, just tell me what to watch for — e.g. 'pizza under $10'."
 

@@ -26,3 +26,4 @@
 - 13:20 wishlist_add live on Cloud Run (lastcall-00004): cloud-verified wish extraction + ArrayUnion persist; seeds restored, state reset
 - 14:00 FILMED RUN CLEAN on real WhatsApp: offer->clarify->publish->2 notified->Maya wins (code 1565)->Raffi 'already gone', 87s end to end, all sends 'sent'; transcript saved
 - 14:15 Final filmed take clean: 40s arc, Maya wins code 2493, Raffi 'already gone'; transcript updated
+- 14:45 Final retake clean, both acts (salads: Maya wins/Raffi late; wishlist: Raffi adds pizza wish on camera, sole match, books code 6386); transcript replaced
